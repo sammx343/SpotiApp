@@ -1,0 +1,31 @@
+[1mdiff --git a/src/app/components/home/home.component.ts b/src/app/components/home/home.component.ts[m
+[1mindex c9a6355..332cd4f 100644[m
+[1m--- a/src/app/components/home/home.component.ts[m
+[1m+++ b/src/app/components/home/home.component.ts[m
+[36m@@ -1,5 +1,5 @@[m
+ import { Component, OnInit } from '@angular/core';[m
+[31m-import { HttpClient } from '@angular/common/http';[m
+[32m+[m[32mimport { SpotifyService } from '../../services/spotify.service';[m
+ [m
+ @Component({[m
+   selector: 'app-home',[m
+[36m@@ -8,15 +8,8 @@[m [mimport { HttpClient } from '@angular/common/http';[m
+ })[m
+ export class HomeComponent implements OnInit {[m
+ [m
+[31m-  paises: any[] = []; [m
+[31m-[m
+[31m-  constructor(private http: HttpClient) { [m
+[31m-    console.log("Lllamado");[m
+[31m-    this.http.get('https://restcountries.eu/rest/v2/lang/es')[m
+[31m-    .subscribe( (res: any) => {[m
+[31m-      this.paises = res;[m
+[31m-      console.log(res);[m
+[31m-    });[m
+[32m+[m[32m  constructor(private spotify: SpotifyService) {[m[41m [m
+[32m+[m[32m    this.spotify.getNewReleases();[m
+   }[m
+ [m
+   ngOnInit() {[m
+warning: LF will be replaced by CRLF in src/app/components/home/home.component.ts.
+The file will have its original line endings in your working directory.
